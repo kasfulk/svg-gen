@@ -1,0 +1,25 @@
+[Unit]
+Description=svg-gen MCP server (Streamable HTTP)
+Documentation=https://github.com/kasfulk/svg-gen
+After=network-online.target
+
+[Service]
+Type=simple
+# SG_TOKEN=... and SG_OUT_DIR=/home/you/svg-gen-out (chmod 600)
+EnvironmentFile=%h/.config/svg-gen/env
+ExecStart=%h/.local/bin/svg-gen-mcp --http 0.0.0.0:18110
+Restart=always
+RestartSec=3
+
+[Install]
+WantedBy=default.target
+
+# install:
+#   cargo build --release && cp target/release/svg-gen-mcp ~/.local/bin/
+#   mkdir -p ~/.config/svg-gen ~/svg-gen-out
+#   printf 'SG_TOKEN=%s\nSG_OUT_DIR=%s/svg-gen-out\n' "$(openssl rand -hex 32)" "$HOME" > ~/.config/svg-gen/env
+#   chmod 600 ~/.config/svg-gen/env
+#   cp contrib/svg-gen-mcp.service ~/.config/systemd/user/
+#   systemctl --user daemon-reload && systemctl --user enable --now svg-gen-mcp
+#   loginctl enable-linger "$USER"   # survive logout/reboot
+#   curl -s localhost:18110/health

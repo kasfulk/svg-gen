@@ -3,8 +3,8 @@
 Query → foto Wikimedia Commons → deepseek vision → file SVG.
 
 Dua binary dari satu crate: `svg-gen` (CLI) dan `svg-gen-mcp` (MCP stdio server).
-Tiga dependency (`ureq`, `serde_json`, `base64`). Pencarian tidak butuh API key: Wikimedia Commons
-tidak pakai auth dan setiap foto membawa metadata lisensi.
+Empat dependency (`ureq`, `serde_json`, `base64`, `tiny_http`). Pencarian tidak butuh API key:
+Wikimedia Commons tidak pakai auth dan setiap foto membawa metadata lisensi.
 
 ## Pakai
 
@@ -81,6 +81,44 @@ hermes mcp add svg-gen --command /abs/path/target/release/svg-gen-mcp
 ```
 
 Lalu `/reload-mcp` di sesi yang sedang jalan, atau buka sesi baru.
+
+## Server HTTP (akses dari mesin lain)
+
+Binary yang sama bisa jalan sebagai server HTTP, bukan cuma stdio:
+
+```bash
+export SG_TOKEN=$(openssl rand -hex 32)      # wajib kalau bind non-loopback
+./target/release/svg-gen-mcp --http 0.0.0.0:18110
+curl -s localhost:18110/health               # {"status":"ok","tools":2,...}
+```
+
+| Endpoint | Isi |
+|---|---|
+| `POST /mcp` | JSON-RPC 2.0 (Streamable HTTP). Auth: `Authorization: Bearer <SG_TOKEN>` atau `X-SG-Token` |
+| `GET /health` | cek hidup, tanpa auth |
+
+Klien Hermes:
+
+```bash
+hermes mcp add svg-gen --url http://127.0.0.1:18110/mcp   # jawab Y, lalu tempel token
+```
+
+Unit systemd `--user` siap pakai: `contrib/svg-gen-mcp.service` (cara pasang ada di komentar file).
+
+Pengamanan yang sudah aktif saat mode HTTP:
+
+- **Token wajib** untuk bind non-loopback. Tanpa `SG_TOKEN`, binary menolak start dan menjelaskan
+  risikonya — server ini memanggil LLM (biaya kredit) dan menulis file di host.
+- **Sandbox tulis**: `out` harus nama relatif dan hasilnya mendarat di `SG_OUT_DIR`
+  (default `~/svg-gen-out`). Path absolut dan `../` ditolak dalam hitungan milidetik, sebelum
+  model dipanggil.
+- **`path` (baca file lokal) dimatikan** di mode HTTP. Pakai `url`.
+- Perbandingan token constant-time; tidak ada TLS — taruh di belakang reverse proxy kalau
+  jaringannya tidak dipercaya.
+
+Peringatan: `--http 0.0.0.0:*` membuka port ke seluruh jaringan yang bisa menjangkau host. Kalau
+yang dimaksud cuma perangkat sendiri, bind ke IP Tailscale (`--http 100.x.y.z:18110`) atau
+`127.0.0.1` dan pakai SSH tunnel. Satu call makan 30 detik–3 menit (unduh foto + model menulis SVG).
 
 ## Batas jujur
 
