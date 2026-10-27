@@ -1,0 +1,13 @@
+[package]
+name = "svg-gen"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+ureq = "=2.12.1"
+serde_json = "=1.0.154"
+base64 = "=0.22.1"
+
+[profile.release]
+opt-level = "z"
+strip = true
