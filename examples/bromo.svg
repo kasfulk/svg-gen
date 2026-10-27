@@ -1,68 +1,72 @@
 <svg viewBox="0 0 1024 768" xmlns="http://www.w3.org/2000/svg">
 <defs>
 <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
-<stop offset="0" stop-color="#c2d8e8"/>
-<stop offset="1" stop-color="#eef1ec"/>
+<stop offset="0" stop-color="#1467BF"/>
+<stop offset="1" stop-color="#A8DCF2"/>
 </linearGradient>
-<linearGradient id="farcone" x1="0" y1="0" x2="0" y2="1">
-<stop offset="0" stop-color="#8fa2b4"/>
-<stop offset="1" stop-color="#c6d2d4"/>
+<linearGradient id="far" x1="0" y1="0" x2="0" y2="1">
+<stop offset="0" stop-color="#5E7BA6"/>
+<stop offset="1" stop-color="#3E5C86"/>
 </linearGradient>
-<linearGradient id="ridgel" x1="0" y1="0" x2="0" y2="1">
-<stop offset="0" stop-color="#5b5448"/>
-<stop offset="1" stop-color="#8a8070"/>
+<linearGradient id="ridge" x1="0" y1="0" x2="0" y2="1">
+<stop offset="0" stop-color="#8A7B62"/>
+<stop offset="1" stop-color="#6A5C48"/>
 </linearGradient>
-<linearGradient id="ridged" x1="0" y1="0" x2="1" y2="0">
-<stop offset="0" stop-color="#2f2b22"/>
-<stop offset="1" stop-color="#54493a"/>
+<linearGradient id="cone" x1="0" y1="0" x2="0" y2="1">
+<stop offset="0" stop-color="#7C6F57"/>
+<stop offset="1" stop-color="#57503E"/>
 </linearGradient>
-<linearGradient id="rim" x1="0" y1="0" x2="0" y2="1">
-<stop offset="0" stop-color="#4a443a"/>
-<stop offset="1" stop-color="#7d7260"/>
+<linearGradient id="cloud" x1="0" y1="0" x2="0" y2="1">
+<stop offset="0" stop-color="#FFFFFF"/>
+<stop offset="1" stop-color="#D3E3EE"/>
 </linearGradient>
-<linearGradient id="cone" x1="0" y1="0" x2="1" y2="0">
-<stop offset="0" stop-color="#18140f"/>
-<stop offset="1" stop-color="#4a3826"/>
+<linearGradient id="green" x1="0" y1="0" x2="0" y2="1">
+<stop offset="0" stop-color="#7FA43C"/>
+<stop offset="1" stop-color="#3E6B22"/>
 </linearGradient>
-<linearGradient id="mist" x1="0" y1="0" x2="0" y2="1">
-<stop offset="0" stop-color="#e4ebef"/>
-<stop offset="1" stop-color="#f6f8f8"/>
+<linearGradient id="tree" x1="0" y1="0" x2="0" y2="1">
+<stop offset="0" stop-color="#16241B"/>
+<stop offset="1" stop-color="#0C1410"/>
 </linearGradient>
 </defs>
 
-<rect x="0" y="0" width="1024" height="380" fill="url(#sky)"/>
-<rect x="0" y="230" width="1024" height="160" fill="#e6ebe7"/>
+<rect x="0" y="0" width="1024" height="768" fill="url(#sky)"/>
 
-<path d="M0 262 L120 246 L230 268 L290 258 L360 276 L360 330 L0 330 Z" fill="#9aa7ac"/>
+<polygon points="340,445 560,300 700,430 620,455 460,465" fill="url(#far)"/>
+<polygon points="640,440 760,368 860,412 960,392 1024,404 1024,470 720,470" fill="url(#far)"/>
+<polygon points="0,448 90,412 190,404 300,428 360,450 240,468 60,470" fill="url(#far)"/>
 
-<polygon points="700,300 782,236 828,258 902,226 1024,268 1024,336 700,336" fill="url(#ridgel)"/>
+<polygon points="0,500 120,470 260,458 400,452 520,462 640,470 760,466 880,478 1024,470 1024,540 0,540" fill="#9FB2BE"/>
 
-<path d="M468 302 L598 142 L732 300 L468 302 Z" fill="url(#farcone)"/>
+<polygon points="220,470 300,430 390,406 480,396 570,400 660,410 750,414 840,414 930,424 962,446 900,472 800,486 700,492 600,492 500,490 400,492 300,486" fill="url(#ridge)"/>
+<polygon points="396,410 420,410 408,490 388,490" fill="#4B4234"/>
+<polygon points="480,400 506,402 500,492 476,492" fill="#4B4234"/>
+<polygon points="576,402 600,406 598,492 572,492" fill="#4B4234"/>
+<polygon points="668,410 692,414 694,492 668,492" fill="#4B4234"/>
 
-<path d="M600 142 C600 128 606 122 610 112 C618 106 628 108 632 116 C640 118 644 128 638 136 C630 146 616 150 600 142 Z" fill="#f0f3f4"/>
+<polygon points="300,480 360,470 430,486 380,520 320,516" fill="#5C5340"/>
 
-<path d="M0 268 L150 246 L280 262 L400 244 L470 268 L470 330 L0 330 Z" fill="url(#ridged)"/>
+<polygon points="545,404 690,548 420,548" fill="url(#cone)"/>
+<polygon points="540,414 528,432 496,548 472,548 520,428" fill="#40392B"/>
+<polygon points="552,414 566,432 600,548 622,548 570,430" fill="#40392B"/>
 
-<path d="M404 300 L520 254 L600 268 L684 250 L760 276 L860 254 L1024 300 L1024 360 L404 360 Z" fill="url(#ridged)"/>
+<path d="M340,462 C 330,440 350,430 362,444 C 372,430 384,442 380,458 C 372,470 352,472 340,462 Z" fill="#F2F7FA"/>
+<path d="M356,452 C 340,430 320,414 300,404 L 316,398 C 342,412 364,430 374,448 Z" fill="#EAF3F8"/>
 
-<path d="M40 352 L150 316 L250 312 L330 302 L400 318 L430 344 L360 366 L150 372 L40 352 Z" fill="url(#rim)"/>
-<path d="M110 330 L220 314 L300 310 L360 316 L360 356 L150 362 L110 330 Z" fill="#b9bfba"/>
+<path d="M0,560 C 120,528 220,556 320,544 C 420,532 500,560 600,548 C 700,536 800,556 900,540 C 960,532 1000,542 1024,536 L1024,600 C 900,612 780,596 660,606 C 540,616 420,600 300,610 C 180,620 80,604 0,614 Z" fill="url(#cloud)"/>
+<path d="M60,626 C 180,604 300,632 420,620 C 540,608 660,630 780,614 C 880,602 960,618 1024,608 L1024,660 C 900,672 780,656 660,664 C 520,674 400,656 280,666 C 180,674 90,660 0,668 L0,630 Z" fill="#E4EFF6"/>
 
-<path d="M300 316 C316 300 344 300 358 314 C372 306 392 310 396 324 C386 338 342 342 316 334 C306 330 298 324 300 316 Z" fill="#eef2f3"/>
+<polygon points="760,700 800,600 860,552 930,528 1000,532 1024,556 1024,700" fill="url(#green)"/>
+<polygon points="880,700 906,620 950,584 1010,572 1024,584 1024,700" fill="#3E6B22"/>
 
-<path d="M330 690 C440 646 520 470 628 218 L666 222 C760 396 850 546 1000 640 L1024 768 L330 768 Z" fill="url(#cone)"/>
+<path d="M0,120 C 60,100 120,110 180,140 C 240,170 300,150 360,180 C 420,210 470,190 520,160 C 570,130 620,120 680,140 C 740,160 800,140 850,110 C 900,80 960,46 1024,0 L1024,0 L1024,130 C 980,150 950,186 940,244 C 930,300 950,358 928,424 C 908,468 866,466 858,426 C 850,378 872,330 862,282 C 852,240 820,222 800,252 C 780,282 780,320 760,340 C 740,360 710,350 700,320 C 690,290 700,250 680,230 C 650,200 600,212 560,232 C 520,252 470,250 430,230 C 390,210 340,216 300,240 C 260,264 210,260 170,236 C 130,212 90,216 50,240 C 25,254 10,250 0,240 Z" fill="url(#tree)"/>
+<path d="M960,96 C 940,180 900,240 820,300 C 760,346 700,360 640,352 L 640,368 C 716,392 800,368 852,318 C 916,256 946,180 978,104 Z" fill="url(#tree)"/>
+<path d="M700,196 C 660,214 620,220 570,216 L 570,230 C 626,240 674,236 716,214 Z" fill="#0C1410"/>
+<path d="M380,220 C 340,196 300,190 250,196 L 250,210 C 306,214 346,230 386,246 Z" fill="#0C1410"/>
+<path d="M120,180 C 100,220 96,264 108,300 L 122,296 C 116,258 122,220 140,190 Z" fill="#0C1410"/>
+<path d="M420,300 C 440,330 460,356 480,376 L 468,386 C 446,364 428,336 410,308 Z" fill="#0C1410"/>
 
-<path d="M628 218 L700 402 L724 398 Z" fill="#6d5138"/>
-<path d="M628 218 L756 470 L780 462 Z" fill="#241f18"/>
-<path d="M628 218 L828 546 L856 534 Z" fill="#7a5a3c"/>
-<path d="M628 218 L906 596 L934 582 Z" fill="#221d17"/>
-<path d="M628 218 L980 634 L1004 622 Z" fill="#5f4630"/>
-<path d="M628 218 L520 470 L494 470 Z" fill="#2b241b"/>
-<path d="M628 218 L418 600 L390 606 Z" fill="#352b20"/>
-
-<path d="M0 470 C120 456 220 478 330 470 C420 462 470 486 560 490 C660 496 760 470 860 486 C930 496 980 490 1024 484 L1024 768 L0 768 Z" fill="url(#mist)"/>
-
-<path d="M180 540 C280 520 360 544 440 532 C520 520 580 548 660 540 C760 530 860 552 980 538 L1024 560 L1024 640 C900 626 800 648 700 640 C600 632 520 654 420 646 C320 638 240 654 140 646 L0 650 L0 566 Z" fill="#eef2f4"/>
-<path d="M60 430 C160 418 240 436 330 428 C420 420 470 440 560 436 L560 470 C470 474 420 456 330 462 C240 468 160 452 60 462 Z" fill="#dde5ea"/>
-<path d="M700 400 C780 392 840 404 920 396 C960 392 1000 398 1024 396 L1024 420 C980 424 950 414 900 418 C820 424 760 414 700 420 Z" fill="#dae3e8"/>
+<path d="M0,700 C 60,676 100,700 140,686 C 190,668 230,690 270,678 C 320,662 360,690 410,678 C 460,666 500,690 550,680 C 610,668 660,694 720,684 L 724,768 L 0,768 Z" fill="#22331B"/>
+<path d="M0,724 C 40,706 70,736 100,716 C 130,740 150,712 180,738 L 180,768 L 0,768 Z" fill="#3E6B22"/>
+<path d="M600,720 C 640,700 680,730 720,712 C 760,734 800,706 840,728 C 880,704 920,730 960,714 L 1024,726 L 1024,768 L 600,768 Z" fill="#22331B"/>
 </svg>
